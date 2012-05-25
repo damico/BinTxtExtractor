@@ -40,7 +40,6 @@ public class MainGUIDesktop implements ActionListener, PropertyChangeListener {
 	final static String BUTTONPANEL = "Buttons";
 
 	JButton inputButton;
-	//JButton outButton;
 	JButton executeButton;
 	JFileChooser fc = new JFileChooser();
 	JFileChooser dc = new JFileChooser();
@@ -81,7 +80,7 @@ public class MainGUIDesktop implements ActionListener, PropertyChangeListener {
 		
 
 		typeProcA = new JCheckBox("LP");
-
+		typeProcA.setSelected(true);
 
 				
 		console.setBounds(4,154+30+8,494, 160);
@@ -129,7 +128,7 @@ public class MainGUIDesktop implements ActionListener, PropertyChangeListener {
 	 */
 	private static void createAndShowGUI() {
 
-		JFrame frame = new JFrame("MobDick Mandrake");
+		JFrame frame = new JFrame(Constants.APP_NAME+" - "+Constants.APP_VERSION);
 	
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 

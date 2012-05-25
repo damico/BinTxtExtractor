@@ -80,6 +80,10 @@ public class FileParser {
 		}
 		inSt.close();
 		outSt.close();
+		if(!writeFile){
+			File outFile = new File(target);
+			outFile.delete();
+		}
 		trackMd5(source, target);
 		return resultCounter;
 	}
@@ -178,6 +182,10 @@ public class FileParser {
 		for(int i = 0; i < bufferSize; i++) if(writeFile) outSt.write(buffer[i]);
 		inSt.close();
 		outSt.close();
+		if(!writeFile){
+			File outFile = new File(target);
+			outFile.delete();
+		}
 		
 		trackMd5(source, target);
 		
