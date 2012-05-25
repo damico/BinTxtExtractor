@@ -1,0 +1,16 @@
+First: BinTxtExtractor is a small tool that opens binary files and looks for readable strings on it.
+It was originally created to try to read passwords from OLEDB, ODBC and ADODB connection strings hardcoded in programs written with 
+Microsoft Visual Studio. Is really disturbing how many people insert hardcode passwords inside the source-code.
+ 
+ Second: A lot of apps do the same, and even better than BinTxtExtractor. However, what makes BinTxtExtractor different is the power to
+ change the hardcoded passwords and generate a new binary file that actually works. This is a very important feature when you need to 
+ deal with legacy applications written in old versions of VisualBasic and VisualC++ with new versions of Microsoft SQL Server. In these 
+ cases legacy applications that had hardcoded Microsoft SQL Server passwords inside the code, will not work unless the passwords are in 
+ the exactly case as it is written inside the database. So if you had a legacy application written in VisualBasic 6 that had a hardcoded 
+ database password written like "SECRET" and the Microsoft SQL Server 2000 had it's password written like "secret" it would  work and 
+ Microsoft SQL Server 2000 would not complain about the difference between cases. But when the Microsoft SQL Server is upgraded to 2008 
+ version the legacy application will not work, because now the cases matters for Microsoft SQL Server 2008. So you will need to recom-
+ pile your legacy applications with the correct case in the hardcoded passwords. OR, you can use BinTxtExtractor that will look for
+ passwords in a pattern file (c:\var\pwdPatterns.txt), than will open the binary (.exe, .dll, .ocx, etc) and for each password found in
+ the pattern file it will lowecase it and build a new binary file inside a "source"\encharmed\ folder. Finally all operations are logged 
+ in a log file at c:/var/log/passwordExtractor.log.
